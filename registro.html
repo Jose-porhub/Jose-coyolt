@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registro de Usuario</title>
+  <style>
+    body { font-family: Arial; background: #fffaf4; text-align: center; padding: 3rem; }
+    input { display: block; width: 300px; margin: 1rem auto; padding: 0.5rem; }
+    button { background: #d35400; color: white; padding: 0.7rem 1.5rem; border: none; cursor: pointer; }
+    button:hover { background: #e67e22; }
+  </style>
+</head>
+<body>
+
+<h1>Regístrate para comprar</h1>
+
+<input type="text" id="nombre" placeholder="Nombre completo" required />
+<input type="email" id="email" placeholder="Correo electrónico" required />
+<input type="tel" id="telefono" placeholder="Teléfono" required />
+<button onclick="registrar()">Registrar</button>
+
+<script>
+function registrar() {
+  const nombre = document.getElementById("nombre").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const tel = document.getElementById("telefono").value.trim();
+
+  if (nombre && email && tel) {
+    localStorage.setItem("usuarioRegistrado", "true");
+    localStorage.setItem("nombreCliente", nombre);
+    alert("Registro exitoso. Serás redirigido...");
+    window.location.href = "index.html";
+  } else {
+    alert("Por favor completa todos los campos.");
+  }
+}
+</script>
+
+</body>
+</html>
